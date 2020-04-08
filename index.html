@@ -480,11 +480,11 @@
       }
 
       #button-18 .knobs:before {
-        content: "Delightex V2";
+        content: "Venture Spaces";
         position: absolute;
         top: 4px;
         left: 4px;
-        width: 60px;
+        width: 80px;
         height: 10px;
         color: #fff;
         font-size: 10px;
@@ -561,8 +561,8 @@
       }
 
       #button-18 .checkbox:checked + .knobs:before {
-        content: "Delightex V1";
-        left: 46px;
+        content: "Focus Areas";
+        left: 26px;
         background-color: #ea3b66;
       }
 
@@ -1208,6 +1208,12 @@
     padding-top: 5px;
   }
 
+    .map-title {
+        font-size: 1.2em;
+    font-family: "Graphik Bold";
+    padding: 20px;
+  }
+
     </style>
 
   </head>
@@ -1407,6 +1413,7 @@
       </div>
   <div class="map-tooltip"></div>
   <div class="bg"></div>
+  <div class="map-title">Delightex Venture Spaces</div>
   <div id="map"></div>
 
 </div>
@@ -1540,7 +1547,7 @@
         var chartTitle = chartSVG
           .append("text")
           .attr("class", "chart-title")
-          .text("Delightex Compass (V2)")
+          .text("Delightex Venture Spaces")
           .attr("y", (-height * 4.55) / 10)
           .style("display", "none")
   
@@ -1588,7 +1595,13 @@
             d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSafGm_gSEK_M6dTEcS3sd2N7CcehHPfg561BJtgzrHClIt5DH79yqHI1LpeOLbbwGob_Xi0kVUdxMB/pub?gid=772960787&single=true&output=csv"
             , {crossOrigin: "anonymous"}).then(function(hero_data) { 
 
-              console.log(data)
+            
+
+              console.log(data.filter(function(d) {
+                return d["Opportunity Space 1"] === "Sex +"
+              }))
+
+              console.log('desc', desc)
 
               
 
