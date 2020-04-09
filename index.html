@@ -1314,13 +1314,15 @@
 
   .ds-venture-space,
   .ds-one-liner,
-  .ds-funding,
+  .ds-funding-amount,
+  .ds-funding-round,
   .ds-year-founded,
   .ds-key-person,
   .ds-contact,
   .ds-key-action {
     text-align: start;
     text-anchor: start;
+    margin-bottom: 2px;
   }
 
   .ds-logo {
@@ -1506,7 +1508,7 @@
         
         </div>
         <div id="dashboard-toggle-btn" class="left-sidebar-btn">
-          <div class="left-sidebar-btn-label">Dashboard</div>
+          <div class="left-sidebar-btn-label">Startup Engagement</div>
           <i class="fas fa-rocket fa-lg"></i>
           
           </div>
@@ -1795,10 +1797,6 @@
                     if (projW > 160) {
                       var ratio = 160/tmpW
                       var projH = tmpH*ratio
-                      console.log('"#ds-logo-" + i', "#ds-logo-" + i)
-                      console.log('projH', projH)
-                      console.log('ratio*tmpW', ratio*tmpW)
-                      console.log('---')
                       d3.select("#ds-logo-" + i).attr("height", projH).style("padding-top", (40-projH)/2 + "px").style("padding-bottom", (40-projH)/2 + "px")
                     }
                   }
@@ -1808,8 +1806,10 @@
                   .attr("id", "ds-venture-space-" + i).html("<tspan class='ds-bold'>Venture Space: </tspan>" + d["Venture Space"])
                   dashboardContainer.append("div").attr("class", "ds-one-liner")
                   .attr("id", "ds-one-liner-" + i).text(d["One Liner"])
-                  dashboardContainer.append("div").attr("class", "ds-funding")
-                  .attr("id", "ds-funding-" + i).html("<tspan class='ds-bold'>Funding Round: </tspan>" + d["Funding Round"] + ", <tspan class='ds-bold'>Funding Amount: </tspan>" + d["Funding Amount"])
+                  dashboardContainer.append("div").attr("class", "ds-funding-round")
+                  .attr("id", "ds-funding-round-" + i).html("<tspan class='ds-bold'>Funding Round: </tspan>" + d["Funding Round"])
+                  dashboardContainer.append("div").attr("class", "ds-funding-amount")
+                  .attr("id", "ds-funding-amount-" + i).html("<tspan class='ds-bold'>Funding Amount: </tspan>" + d["Funding Amount"])
                   dashboardContainer.append("div").attr("class", "ds-year-founded")
                   .attr("id", "ds-year-founded-" + i).html("<tspan class='ds-bold'>Year Founded: </tspan>" + d["Year Founded"])
                   dashboardContainer.append("div").attr("class", "ds-key-person")
