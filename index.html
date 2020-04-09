@@ -1824,6 +1824,10 @@
                   dashboardContainer.append("div").attr("class", "ds-key-action")
                   .attr("id", "ds-key-action-" + i).text(d["Key Action"])
               })
+
+              desc.sort(function(a, b) {
+                return d3.ascending(a["Venture Space"], b["Venture Space"])
+              })
               
 
               var focusAreaOrder = desc.map(function(d) {
@@ -1833,6 +1837,9 @@
               var themeOrder = [... new Set(desc.map(function(d) {
                 return d["Venture Space"]
               }))]
+
+              console.log('focusAreaOrder', focusAreaOrder)
+              console.log('themeOrder', themeOrder)
 
               // Filter data for startups noot in description:
               new_data = []
